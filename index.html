@@ -3,587 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FCR Vedbæk Padel – Lokal padel i foreningsfællesskab</title>
-<meta name="description" content="FCR Vedbæk Padel er en ny padelklub på Vedbæk Stadion. Tre udendørs baner, MATCHi-booking, socialt fællesskab og lokal foreningskultur.">
+<title>Vedbæk Padel – Lokal padel i foreningsfællesskab</title>
+<meta name="description" content="Vedbæk Padel er en lokal padelklub på Vedbæk Stadion med 3 udendørsbaner, MATCHi-booking og et stærkt socialt fællesskab for både motionister og erfarne spillere.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  /* ---------- Design tokens ---------- */
-  :root {
-    --navy: #0F2E4A;         /* logoets mørkeblå ketcher */
-    --navy-deep: #082138;    /* dybere navy til hero */
-    --navy-soft: #1B3A5A;    /* soft navy accent */
-    --teal: #8FCDC8;         /* logoets mint/teal ketcher */
-    --teal-strong: #5FB0AA;  /* stærkere teal til knapper */
-    --teal-deep: #3D8B85;    /* teal hover */
-    --cream: #FAF8F3;        /* baggrundsvarme */
-    --paper: #FFFFFF;
-    --sand: #F1EEE5;         /* subtil sektions-baggrund */
-    --ink: #1A1F2B;          /* brødtekst */
-    --ink-muted: #4A5568;    /* dæmpet tekst */
-    --line: #E4E1D8;         /* grænselinjer */
-    --shadow-sm: 0 2px 8px rgba(15, 46, 74, 0.06);
-    --shadow-md: 0 8px 24px rgba(15, 46, 74, 0.10);
-    --shadow-lg: 0 20px 50px rgba(15, 46, 74, 0.14);
-    --radius: 14px;
-    --radius-lg: 22px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-  body {
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    color: var(--ink);
-    background: var(--cream);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3, h4 { font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.01em; }
-  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
-  h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin-bottom: 0.5em; }
-  h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4em; }
-  p { color: var(--ink-muted); }
-  a { color: var(--teal-deep); text-decoration: none; transition: color .2s; }
-  a:hover { color: var(--navy); }
-
-  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-  .section { padding: 84px 0; }
-  .section-alt { background: var(--paper); }
-  .section-sand { background: var(--sand); }
-
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--teal-deep);
-    margin-bottom: 12px;
-  }
-  .section-title { margin-bottom: 40px; max-width: 720px; }
-  .section-title p { font-size: 1.08rem; margin-top: 10px; }
-
-  /* ---------- Nav ---------- */
-  .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(14px);
-    -webkit-backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid transparent;
-    transition: border-color .3s, box-shadow .3s;
-  }
-  .nav.scrolled { border-bottom-color: var(--line); box-shadow: var(--shadow-sm); }
-  .nav-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-  .nav-brand {
-    display: flex; align-items: center; gap: 12px;
-    font-weight: 800; color: var(--navy);
-    font-size: 1.05rem;
-  }
-  .nav-brand img { height: 44px; width: auto; }
-  .nav-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-  .nav-brand-text small { color: var(--teal-deep); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-
-  .nav-links { display: flex; gap: 6px; align-items: center; }
-  .nav-links a {
-    color: var(--navy);
-    font-weight: 600;
-    font-size: 0.94rem;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: background .2s, color .2s;
-  }
-  .nav-links a:hover { background: var(--sand); color: var(--navy); }
-  .nav-links .cta { background: var(--navy); color: white; padding: 10px 18px; margin-left: 8px; }
-  .nav-links .cta:hover { background: var(--navy-deep); color: white; }
-
-  .nav-toggle {
-    display: none;
-    background: none; border: none;
-    cursor: pointer;
-    padding: 8px;
-    color: var(--navy);
-  }
-  .nav-toggle svg { width: 28px; height: 28px; }
-
-  @media (max-width: 900px) {
-    .nav-links {
-      position: absolute;
-      top: 100%;
-      left: 0; right: 0;
-      background: white;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 12px 20px 20px;
-      border-bottom: 1px solid var(--line);
-      gap: 2px;
-      transform: translateY(-10px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .2s, transform .2s;
-      box-shadow: var(--shadow-md);
-    }
-    .nav-links.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    .nav-links a { padding: 12px 14px; }
-    .nav-links .cta { margin-left: 0; margin-top: 8px; text-align: center; }
-    .nav-toggle { display: flex; align-items: center; justify-content: center; }
-  }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative;
-    padding: 160px 0 100px;
-    background:
-      radial-gradient(1200px 500px at 85% -10%, rgba(143, 205, 200, 0.28), transparent 60%),
-      radial-gradient(900px 500px at -10% 110%, rgba(15, 46, 74, 0.10), transparent 60%),
-      linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
-    overflow: hidden;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(15,46,74,0.03) 40px),
-      repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(15,46,74,0.03) 40px);
-    pointer-events: none;
-  }
-  .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: white; padding: 8px 16px 8px 10px;
-    border-radius: 100px;
-    border: 1px solid var(--line);
-    font-size: 0.85rem; font-weight: 700; color: var(--navy);
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 24px;
-  }
-  .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-strong); box-shadow: 0 0 0 4px rgba(95, 176, 170, 0.25); }
-  .hero h1 { margin-bottom: 20px; }
-  .hero h1 .accent { color: var(--teal-deep); }
-  .hero-lead { font-size: 1.18rem; color: var(--ink-muted); max-width: 540px; margin-bottom: 32px; }
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 24px;
-    border-radius: 100px;
-    font-weight: 700;
-    font-size: 0.98rem;
-    transition: transform .15s, box-shadow .2s, background .2s;
-    border: none;
-    cursor: pointer;
-  }
-  .btn-primary { background: var(--navy); color: white; box-shadow: var(--shadow-md); }
-  .btn-primary:hover { background: var(--navy-deep); color: white; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .btn-secondary { background: white; color: var(--navy); border: 1.5px solid var(--navy); }
-  .btn-secondary:hover { background: var(--navy); color: white; }
-  .btn-teal { background: var(--teal-strong); color: white; }
-  .btn-teal:hover { background: var(--teal-deep); color: white; }
-
-  .hero-visual {
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-visual img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    filter: drop-shadow(0 20px 40px rgba(15, 46, 74, 0.18));
-    animation: floaty 6s ease-in-out infinite;
-  }
-  @keyframes floaty {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .hero-quick {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    position: relative;
-    z-index: 2;
-  }
-  .quick-card {
-    background: white;
-    padding: 22px 20px;
-    border-radius: var(--radius);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow-sm);
-  }
-  .quick-card .num { font-size: 2rem; font-weight: 800; color: var(--navy); line-height: 1; }
-  .quick-card .lbl { font-size: 0.88rem; color: var(--ink-muted); margin-top: 6px; font-weight: 600; }
-
-  @media (max-width: 900px) {
-    .hero { padding: 130px 0 60px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-visual { order: -1; }
-    .hero-visual img { max-width: 220px; }
-    .hero-quick { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }
-  }
-
-  /* ---------- Feature grid ---------- */
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  @media (max-width: 800px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .grid-2 { grid-template-columns: 1fr; }
-  }
-
-  .card {
-    background: white;
-    padding: 32px 28px;
-    border-radius: var(--radius);
-    border: 1px solid var(--line);
-    transition: transform .25s, box-shadow .25s;
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .card .icon {
-    width: 48px; height: 48px;
-    background: var(--sand);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 18px;
-    color: var(--navy);
-  }
-  .card .icon svg { width: 26px; height: 26px; }
-  .card ul { list-style: none; padding: 0; margin-top: 10px; }
-  .card li { padding: 6px 0 6px 22px; position: relative; color: var(--ink-muted); font-size: 0.96rem; }
-  .card li::before {
-    content: ''; position: absolute; left: 0; top: 14px;
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--teal-strong);
-  }
-
-  /* ---------- Baner sektion ---------- */
-  .facility-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-  .facility-visual {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    aspect-ratio: 4/3;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
-  }
-  .facility-visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(255,255,255,0.03) 21px),
-      repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255,255,255,0.03) 21px);
-  }
-  .courts-svg { position: relative; z-index: 2; width: 100%; max-width: 460px; }
-
-  .facility-list { list-style: none; padding: 0; margin-top: 18px; }
-  .facility-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line);
-    display: flex; gap: 14px; align-items: flex-start;
-    color: var(--ink);
-  }
-  .facility-list li:last-child { border-bottom: none; }
-  .facility-list li strong { color: var(--navy); font-weight: 700; min-width: 130px; display: inline-block; }
-
-  @media (max-width: 800px) {
-    .facility-grid { grid-template-columns: 1fr; gap: 24px; }
-    .facility-visual { padding: 24px; aspect-ratio: 3/2; }
-  }
-
-  /* ---------- Pris/gæste-tabel ---------- */
-  .guest-table {
-    background: white;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .guest-row {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 20px;
-    padding: 18px 24px;
-    align-items: center;
-    border-bottom: 1px solid var(--line);
-  }
-  .guest-row:last-child { border-bottom: none; }
-  .guest-row.header { background: var(--sand); font-weight: 700; color: var(--navy); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 24px; }
-  .guest-count {
-    display: flex; gap: 4px;
-  }
-  .player-dot {
-    width: 26px; height: 26px; border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 0.72rem; font-weight: 800;
-  }
-  .player-dot.member { background: var(--teal); color: var(--navy); }
-  .player-dot.guest { background: var(--sand); color: var(--ink-muted); border: 1px dashed #C6C0B0; }
-  .guest-price { font-weight: 800; color: var(--navy); font-size: 1.1rem; font-variant-numeric: tabular-nums; }
-  .guest-price.free { color: var(--teal-deep); }
-
-  /* ---------- Pris/kontingent kort ---------- */
-  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .price-card {
-    background: white;
-    padding: 32px 28px;
-    border-radius: var(--radius);
-    border: 1px solid var(--line);
-    text-align: center;
-    position: relative;
-    transition: transform .25s, box-shadow .25s;
-  }
-  .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .price-card.featured {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: white;
-    border-color: var(--navy);
-    box-shadow: var(--shadow-lg);
-  }
-  .price-card.featured h3, .price-card.featured .amount { color: white; }
-  .price-card.featured p { color: rgba(255,255,255,0.75); }
-  .price-card .amount { font-size: 2.4rem; font-weight: 800; color: var(--navy); line-height: 1; margin: 12px 0 4px; }
-  .price-card .amount small { font-size: 1rem; font-weight: 700; color: var(--ink-muted); }
-  .price-card .desc { font-size: 0.92rem; }
-  .price-card .badge {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--teal); color: var(--navy);
-    padding: 4px 14px; border-radius: 100px;
-    font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  @media (max-width: 800px) { .price-grid { grid-template-columns: 1fr; } }
-
-  /* ---------- Bestyrelse ---------- */
-  .board-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .board-card {
-    background: white;
-    padding: 20px;
-    border-radius: var(--radius);
-    border: 1px solid var(--line);
-    display: flex;
-    gap: 14px;
-    align-items: center;
-  }
-  .avatar {
-    flex-shrink: 0;
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-strong) 100%);
-    color: var(--navy);
-    font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-  }
-  .avatar.suppleant { background: linear-gradient(135deg, var(--sand) 0%, #DDD8C8 100%); color: var(--navy); }
-  .avatar.admin { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%); color: white; }
-  .board-info { flex: 1; min-width: 0; }
-  .board-info .name { font-weight: 700; color: var(--navy); font-size: 0.98rem; }
-  .board-info .role { font-size: 0.82rem; color: var(--teal-deep); font-weight: 700; margin-bottom: 2px; }
-  .board-info a { font-size: 0.86rem; color: var(--ink-muted); word-break: break-all; }
-  .board-info a:hover { color: var(--navy); }
-  @media (max-width: 800px) { .board-grid { grid-template-columns: 1fr; } }
-
-  /* ---------- Vedtægter accordion ---------- */
-  .accordion { max-width: 860px; margin: 0 auto; }
-  details.acc-item {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    margin-bottom: 12px;
-    overflow: hidden;
-    transition: box-shadow .2s;
-  }
-  details.acc-item[open] { box-shadow: var(--shadow-sm); }
-  details.acc-item summary {
-    padding: 18px 24px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    font-weight: 700;
-    color: var(--navy);
-    list-style: none;
-    transition: background .15s;
-  }
-  details.acc-item summary::-webkit-details-marker { display: none; }
-  details.acc-item summary:hover { background: var(--sand); }
-  details.acc-item summary::after {
-    content: '';
-    width: 12px; height: 12px;
-    border-right: 2.5px solid var(--navy);
-    border-bottom: 2.5px solid var(--navy);
-    transform: rotate(45deg);
-    transition: transform .2s;
-    flex-shrink: 0;
-  }
-  details.acc-item[open] summary::after { transform: rotate(-135deg); }
-  details.acc-item .acc-body {
-    padding: 4px 24px 24px;
-    color: var(--ink-muted);
-    font-size: 0.96rem;
-  }
-  details.acc-item .acc-body p { margin-bottom: 10px; }
-  details.acc-item .acc-body p:last-child { margin-bottom: 0; }
-  details.acc-item .acc-body strong { color: var(--navy); }
-
-  /* ---------- Sponsor ---------- */
-  .sponsor-cta {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
-    border-radius: var(--radius-lg);
-    padding: 56px;
-    color: white;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .sponsor-cta::before {
-    content: '';
-    position: absolute;
-    right: -80px; top: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, var(--teal-strong) 0%, transparent 70%);
-    opacity: 0.4;
-  }
-  .sponsor-cta h2 { color: white; }
-  .sponsor-cta p { color: rgba(255,255,255,0.82); margin-bottom: 20px; }
-  .sponsor-cta ul { list-style: none; padding: 0; }
-  .sponsor-cta li { padding: 6px 0 6px 24px; position: relative; color: rgba(255,255,255,0.9); }
-  .sponsor-cta li::before {
-    content: '✓';
-    position: absolute; left: 0; top: 6px;
-    color: var(--teal);
-    font-weight: 800;
-  }
-  .sponsor-actions {
-    position: relative; z-index: 2;
-    display: flex; flex-direction: column; gap: 12px;
-  }
-  .sponsor-actions .btn-secondary { background: transparent; border-color: white; color: white; }
-  .sponsor-actions .btn-secondary:hover { background: white; color: var(--navy); }
-  @media (max-width: 800px) {
-    .sponsor-cta { grid-template-columns: 1fr; padding: 36px 28px; }
-  }
-
-  /* ---------- Kontakt ---------- */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
-  .contact-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 32px;
-    border: 1px solid var(--line);
-  }
-  .contact-row {
-    display: flex; gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: flex-start;
-  }
-  .contact-row:last-child { border-bottom: none; }
-  .contact-row .icon {
-    width: 40px; height: 40px;
-    background: var(--sand);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    color: var(--navy);
-  }
-  .contact-row .icon svg { width: 20px; height: 20px; }
-  .contact-row .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); font-weight: 700; }
-  .contact-row .val { font-size: 1rem; color: var(--navy); font-weight: 700; margin-top: 2px; }
-  .contact-row .val a { color: var(--navy); }
-  .contact-row .val a:hover { color: var(--teal-deep); }
-
-  .map-wrap {
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    aspect-ratio: 4/5;
-    background: var(--sand);
-  }
-  .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
-
-  @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } .map-wrap { aspect-ratio: 4/3; } }
-
-  /* ---------- Footer ---------- */
-  footer {
-    background: var(--navy-deep);
-    color: rgba(255,255,255,0.75);
-    padding: 60px 0 30px;
-    margin-top: 40px;
-  }
-  footer .container { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
-  footer h4 { color: white; font-size: 1rem; margin-bottom: 14px; }
-  footer a { color: rgba(255,255,255,0.75); display: block; padding: 4px 0; font-size: 0.94rem; }
-  footer a:hover { color: var(--teal); }
-  footer .brand { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
-  footer .brand img { height: 60px; }
-  footer .brand-text { color: white; font-weight: 800; font-size: 1.1rem; }
-  footer .brand-text small { display: block; font-size: 0.75rem; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
-  footer .about { max-width: 320px; font-size: 0.94rem; line-height: 1.7; }
-  footer .bottom {
-    max-width: 1140px; margin: 40px auto 0; padding: 20px 24px 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    font-size: 0.86rem;
-    color: rgba(255,255,255,0.55);
-  }
-  @media (max-width: 800px) {
-    footer .container { grid-template-columns: 1fr; gap: 30px; }
-  }
-
-  /* ---------- Utility ---------- */
-  .highlight-box {
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-strong) 100%);
-    padding: 24px 28px;
-    border-radius: var(--radius);
-    color: var(--navy);
-    margin: 20px 0;
-    font-weight: 700;
-  }
-  .highlight-box strong { color: var(--navy); }
-  .info-note {
-    background: var(--sand);
-    padding: 20px 24px;
-    border-radius: var(--radius);
-    border-left: 4px solid var(--teal-strong);
-    font-size: 0.94rem;
-    color: var(--ink-muted);
-  }
-
-  /* Two-column layouts for facility/booking */
-  .facility-list li strong { min-width: 140px; }
-
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" type="image/png" href="assets/img/logo-vedbaek-padel.png">
 </head>
 <body>
 
@@ -591,9 +17,9 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-brand">
-      <img src="assets/logo-vedbaek-padel.png" alt="Vedbæk Padel logo">
+      <img src="assets/img/logo-vedbaek-padel.png" alt="Vedbæk Padel logo">
       <div class="nav-brand-text">
-        FCR Vedbæk Padel
+        Vedbæk Padel
         <small>En del af FCR</small>
       </div>
     </a>
@@ -607,8 +33,9 @@
       <a href="#priser">Priser</a>
       <a href="#faellesskab">Fællesskab</a>
       <a href="#bestyrelse">Bestyrelse</a>
+      <a href="#sponsorer">Sponsorer</a>
       <a href="#kontakt">Kontakt</a>
-      <a href="#" class="cta">Book i MATCHi</a>
+      <a href="https://www.matchi.se/facilities/vedbaekpadelklub" class="cta" target="_blank" rel="noopener">Book i MATCHi</a>
     </div>
   </div>
 </nav>
@@ -620,12 +47,12 @@
       <div>
         <span class="hero-badge">
           <span class="dot"></span>
-          Ny padelklub · Åbner ved påske 2026
+          Lokal padelklub på Vedbæk Stadion
         </span>
         <h1>Lokal padel <span class="accent">i foreningsfællesskab</span> på Vedbæk Stadion</h1>
-        <p class="hero-lead">Tre udendørs padelbaner, MATCHi-booking og et stærkt socialt liv – drevet af frivillige, båret af medlemmerne. Vi spiller, hygger og bygger klubben sammen.</p>
+        <p class="hero-lead">Vedbæk Padel er en lokal padelklub beliggende på Vedbæk Stadion med 3 udendørsbaner til spil året rundt. Klubben drives for medlemmerne – med fokus på at skabe et stærkt fællesskab omkring padel for både motionister og mere erfarne spillere.</p>
         <div class="hero-ctas">
-          <a href="#" class="btn btn-primary">
+          <a href="https://www.matchi.se/facilities/vedbaekpadelklub" class="btn btn-primary" target="_blank" rel="noopener">
             Book bane i MATCHi
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -633,7 +60,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="assets/logo-vedbaek-padel.png" alt="Vedbæk Padel klublogo">
+        <img src="assets/img/logo-vedbaek-padel.png" alt="Vedbæk Padel klublogo">
       </div>
     </div>
 
@@ -643,12 +70,12 @@
         <div class="lbl">Udendørs baner med lys</div>
       </div>
       <div class="quick-card">
-        <div class="num">7.30–22</div>
+        <div class="num">7-22</div>
         <div class="lbl">Åbent alle ugens dage</div>
       </div>
       <div class="quick-card">
         <div class="num">1.500 kr.</div>
-        <div class="lbl">Årligt kontingent (voksne)</div>
+        <div class="lbl">Årligt kontingent – voksne</div>
       </div>
       <div class="quick-card">
         <div class="num">MATCHi</div>
@@ -663,8 +90,8 @@
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Om klubben</span>
-      <h2>En padelklub for alle — bygget som forening</h2>
-      <p>FCR Vedbæk Padel er en ny padelklub på Vedbæk Stadion, etableret som forening og i tæt samarbejde med FC Rudersdal. Vi prioriterer spilleglæde, socialt liv og et bæredygtigt klubmiljø frem for kommerciel drift.</p>
+      <h2>En padelklub for alle – bygget som forening</h2>
+      <p>Som medlem får du adgang til booking via MATCHi, klubaktiviteter, events og et aktivt padelmiljø i hyggelige omgivelser. Klubben er en afdeling under hovedforeningen FCR og drives af frivillige kræfter – med fokus på spilleglæde, socialt liv og et bæredygtigt klubmiljø frem for kommerciel drift.</p>
     </div>
 
     <div class="grid-3">
@@ -673,14 +100,14 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Foreningsdrevet</h3>
-        <p>Klubben drives af frivillige kræfter. Vi udvikler os i takt med medlemmernes ønsker og behov — ingen investorer, ingen kommerciel dagsorden.</p>
+        <p>Klubben drives af frivillige kræfter. Vi udvikler os i takt med medlemmernes ønsker og behov – ingen investorer, ingen kommerciel dagsorden.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3>Socialt fokus</h3>
-        <p>Vi prioriterer fællesskab højt. Fællesspil, Americano/Mexicano og hyggeaftener er en fast del af klubkalenderen — så du finder makkere på dit niveau.</p>
+        <p>Vi prioriterer fællesskab højt. Fællesspil, Americano/Mexicano og hyggeaftener er en fast del af klubkalenderen – så du finder makkere på dit niveau.</p>
       </div>
       <div class="card">
         <div class="icon">
@@ -699,20 +126,18 @@
     <div class="section-title">
       <span class="eyebrow">Baner &amp; faciliteter</span>
       <h2>Tre udendørs baner i forlængelse af Vedbæk Stadion</h2>
-      <p>Anlægsarbejdet er i gang, og vi forventer, at banerne står klar omkring påske. Banerne ligger ud mod Gøngehusvej og bliver en del af det samlede idrætsområde.</p>
+      <p>Banerne ligger ud mod Gøngehusvej, i forlængelse af kunstgræsbanen, og bliver en del af det samlede idrætsområde.</p>
     </div>
 
     <div class="facility-grid">
       <div class="facility-visual">
         <svg class="courts-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
-          <!-- Three padel courts side by side, top-down -->
           <defs>
             <linearGradient id="courtGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#5FB0AA"/>
               <stop offset="100%" stop-color="#3D8B85"/>
             </linearGradient>
           </defs>
-          <!-- Court 1 -->
           <g transform="translate(20,40)">
             <rect x="0" y="0" width="130" height="240" rx="6" fill="url(#courtGrad)" stroke="#8FCDC8" stroke-width="2"/>
             <line x1="0" y1="120" x2="130" y2="120" stroke="#fff" stroke-width="2" opacity="0.9"/>
@@ -721,7 +146,6 @@
             <line x1="65" y1="80" x2="65" y2="160" stroke="#fff" stroke-width="1.5" opacity="0.7"/>
             <text x="65" y="128" text-anchor="middle" fill="#fff" font-family="Nunito" font-size="14" font-weight="800" opacity="0.9">1</text>
           </g>
-          <!-- Court 2 -->
           <g transform="translate(165,40)">
             <rect x="0" y="0" width="130" height="240" rx="6" fill="url(#courtGrad)" stroke="#8FCDC8" stroke-width="2"/>
             <line x1="0" y1="120" x2="130" y2="120" stroke="#fff" stroke-width="2" opacity="0.9"/>
@@ -730,7 +154,6 @@
             <line x1="65" y1="80" x2="65" y2="160" stroke="#fff" stroke-width="1.5" opacity="0.7"/>
             <text x="65" y="128" text-anchor="middle" fill="#fff" font-family="Nunito" font-size="14" font-weight="800" opacity="0.9">2</text>
           </g>
-          <!-- Court 3 -->
           <g transform="translate(310,40)">
             <rect x="0" y="0" width="130" height="240" rx="6" fill="url(#courtGrad)" stroke="#8FCDC8" stroke-width="2"/>
             <line x1="0" y1="120" x2="130" y2="120" stroke="#fff" stroke-width="2" opacity="0.9"/>
@@ -739,7 +162,6 @@
             <line x1="65" y1="80" x2="65" y2="160" stroke="#fff" stroke-width="1.5" opacity="0.7"/>
             <text x="65" y="128" text-anchor="middle" fill="#fff" font-family="Nunito" font-size="14" font-weight="800" opacity="0.9">3</text>
           </g>
-          <!-- Path/direction indicators -->
           <text x="230" y="25" text-anchor="middle" fill="#fff" font-family="Nunito" font-size="11" font-weight="700" opacity="0.7" letter-spacing="2">GØNGEHUSVEJ</text>
           <text x="230" y="308" text-anchor="middle" fill="#fff" font-family="Nunito" font-size="11" font-weight="700" opacity="0.7" letter-spacing="2">VEDBÆK STADION</text>
         </svg>
@@ -750,9 +172,9 @@
           <li><strong>Antal baner:</strong><span>3 udendørs padelbaner</span></li>
           <li><strong>Belysning:</strong><span>Lys på alle baner</span></li>
           <li><strong>Overdækning:</strong><span>Ikke overdækkede</span></li>
-          <li><strong>Åbningstider:</strong><span>Kl. 7.30 – 22.00, alle ugens dage</span></li>
+          <li><strong>Åbningstider:</strong><span>Kl. 7-22, alle ugens dage</span></li>
           <li><strong>Beliggenhed:</strong><span>Ud mod Gøngehusvej, i forlængelse af kunstgræsbanen</span></li>
-          <li><strong>Klubhus:</strong><span>Mindre klubhus ved banerne med toiletfaciliteter — vi arbejder på adgang til FC Rudersdals klubhus med omklædning, opholdsrum og salg af bat, bolde og drikkevarer</span></li>
+          <li><strong>Klubhus:</strong><span>Mindre klubhus ved banerne med toiletfaciliteter. Vi arbejder på adgang til FC Rudersdals klubhus med omklædning, opholdsrum og salg af bat, bolde og drikkevarer.</span></li>
         </ul>
       </div>
     </div>
@@ -765,7 +187,7 @@
     <div class="section-title">
       <span class="eyebrow">Booking</span>
       <h2>Book din bane via MATCHi</h2>
-      <p>Vi bruger MATCHi som booking- og medlemsplatform — en af de mest udbredte og brugervenlige løsninger i danske padelklubber.</p>
+      <p>Vi bruger MATCHi som booking- og medlemsplatform – en af de mest udbredte og brugervenlige løsninger i danske padelklubber.</p>
     </div>
 
     <div class="grid-2">
@@ -775,10 +197,10 @@
         </div>
         <h3>Sådan booker du</h3>
         <ul>
-          <li>Bookinger foregår i <strong>60-minutters slots</strong> til at starte med</li>
+          <li>Bookinger foregår i <strong>60-minutters slots</strong></li>
           <li>Du kan have <strong>op til 2 bookinger ad gangen</strong></li>
-          <li>Der skal <strong>4 spillere</strong> til at booke en bane</li>
-          <li>Når vi har overblik over belægningen, åbner vi for 90 eller 120 min. slots</li>
+          <li>Book direkte i MATCHi-appen eller på web</li>
+          <li>Inviter medspillere og gæster i samme booking</li>
         </ul>
       </div>
       <div class="card">
@@ -789,8 +211,8 @@
         <ul>
           <li>Booke baner</li>
           <li>Invitere medspillere og gæster</li>
-          <li>Tilmelde dig sociale spil og events</li>
-          <li>På sigt tilmelde dig træning og interne turneringer</li>
+          <li>Tilmelde dig sociale spil, events og træning</li>
+          <li>På sigt tilmelde dig interne turneringer</li>
         </ul>
       </div>
     </div>
@@ -806,7 +228,7 @@
       </div>
       <div class="guest-row">
         <div class="guest-count">
-          <span class="player-dot member" title="Medlem">M</span>
+          <span class="player-dot member">M</span>
           <span class="player-dot member">M</span>
           <span class="player-dot member">M</span>
           <span class="player-dot member">M</span>
@@ -819,7 +241,7 @@
           <span class="player-dot member">M</span>
           <span class="player-dot member">M</span>
           <span class="player-dot member">M</span>
-          <span class="player-dot guest" title="Gæst">G</span>
+          <span class="player-dot guest">G</span>
         </div>
         <div>3 medlemmer + 1 gæst</div>
         <div class="guest-price">60 kr.</div>
@@ -847,7 +269,7 @@
     </div>
 
     <div style="text-align:center; margin-top:36px;">
-      <a href="#" class="btn btn-primary">
+      <a href="https://www.matchi.se/facilities/vedbaekpadelklub" class="btn btn-primary" target="_blank" rel="noopener">
         Åbn MATCHi
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -860,7 +282,7 @@
   <div class="container">
     <div class="section-title" style="margin-left:auto; margin-right:auto; text-align:center;">
       <span class="eyebrow">Kontingent</span>
-      <h2>Frit spil — én pris om året</h2>
+      <h2>Frit spil – én pris om året</h2>
       <p>Kontingentet giver adgang til frit spil på klubbens baner inden for de gældende bookingregler. Det opkræves i 1. kvartal. Ved indmeldelse senere på året opkræves reduceret kontingent.</p>
     </div>
 
@@ -869,20 +291,25 @@
         <h3>Junior</h3>
         <p class="desc">Under 18 år</p>
         <div class="amount">950 <small>kr./år</small></div>
-        <p style="margin-top:8px; font-size:0.9rem;">Frit spil på klubbens baner</p>
+        <p class="foot">Frit spil på klubbens baner</p>
       </div>
-      <div class="price-card featured">
-        <span class="badge">Mest populær</span>
+      <div class="price-card">
         <h3>Voksen</h3>
         <p class="desc">Almindeligt medlemskab</p>
         <div class="amount">1.500 <small>kr./år</small></div>
-        <p style="margin-top:8px; font-size:0.9rem;">Frit spil, adgang til sociale spil, events og fællesskabet</p>
+        <p class="foot">Frit spil, sociale spil, events og fællesskabet</p>
+      </div>
+      <div class="price-card">
+        <h3>Dagsmedlem</h3>
+        <p class="desc">Resten af 2026</p>
+        <div class="amount">700 <small>kr.</small></div>
+        <p class="foot">Ingen FCR-rabat på dette medlemskab</p>
       </div>
       <div class="price-card">
         <h3>FCR-rabat</h3>
-        <p class="desc">Medlem af FC Rudersdal</p>
+        <p class="desc">Betalende medlemmer af FC Rudersdal</p>
         <div class="amount">–20 <small>%</small></div>
-        <p style="margin-top:8px; font-size:0.9rem;">Gælder både voksen- og juniorkontingent</p>
+        <p class="foot">Gælder voksen- og juniorkontingent</p>
       </div>
     </div>
 
@@ -898,7 +325,7 @@
     <div class="section-title">
       <span class="eyebrow">Fællesskab &amp; aktiviteter</span>
       <h2>Padel er sjovest, når det er socialt</h2>
-      <p>Fra start prioriterer vi fællesskab højt. Via MATCHi forventer vi at arrangere aktiviteter, hvor du kan møde nye medlemmer, finde faste makkere og spille på et passende niveau.</p>
+      <p>Vi prioriterer fællesskab højt. Via MATCHi arrangerer vi aktiviteter, hvor du kan møde nye medlemmer, finde faste makkere og spille på et passende niveau.</p>
     </div>
 
     <div class="grid-3">
@@ -907,7 +334,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
         </div>
         <h3>Fællesspil på faste ugedage</h3>
-        <p>Faste tidspunkter i ugen, hvor du kan tilmelde dig via MATCHi og få tildelt medspillere — perfekt hvis du er ny eller mangler makker.</p>
+        <p>Faste tidspunkter i ugen, hvor du kan tilmelde dig via MATCHi og få tildelt medspillere – perfekt hvis du er ny eller mangler makker.</p>
       </div>
       <div class="card">
         <div class="icon">
@@ -921,7 +348,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3>Events &amp; hyggeaftener</h3>
-        <p>Klubaftener på tværs af niveauer, hvor det handler om at have det sjovt sammen — også når ketcheren er lagt væk.</p>
+        <p>Klubaftener på tværs af niveauer, hvor det handler om at have det sjovt sammen – også når ketcheren er lagt væk.</p>
       </div>
     </div>
 
@@ -931,7 +358,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <h3>Turneringer</h3>
-        <p>Vi deltager <strong>ikke</strong> i eksterne turneringsligaer i opstartsfasen. Fokus er på at få klubben og fællesskabet stærkt i gang. Interne turneringer kan komme til via MATCHi.</p>
+        <p>Vi deltager <strong>ikke</strong> i eksterne turneringsligaer i opstartsfasen. Fokus er på at få klubben og fællesskabet stærkt i gang. På sigt kan interne turneringer komme til via MATCHi.</p>
       </div>
       <div class="card">
         <div class="icon">
@@ -950,7 +377,7 @@
     <div class="section-title">
       <span class="eyebrow">Bestyrelse &amp; administration</span>
       <h2>De frivillige, der driver klubben</h2>
-      <p>FCR Vedbæk Padel drives af en bestyrelse valgt på generalforsamlingen. Har du spørgsmål, forslag eller lyst til at bidrage, er du meget velkommen til at tage fat i os.</p>
+      <p>Vedbæk Padel drives af en bestyrelse valgt på generalforsamlingen. Har du spørgsmål, forslag eller lyst til at bidrage, er du meget velkommen til at tage fat i os.</p>
     </div>
 
     <div class="board-grid">
@@ -1025,208 +452,57 @@
         </div>
       </div>
     </div>
+
+    <div class="board-links">
+      <a href="vedtaegter.html" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Læs vedtægter
+      </a>
+      <a href="#" class="btn btn-secondary" title="Link opdateres når referatet er tilgængeligt">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Referat, seneste generalforsamling
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- ==================== VEDTÆGTER ==================== -->
-<section class="section section-sand" id="vedtaegter">
+<!-- ==================== SPONSORER ==================== -->
+<section class="section section-sand" id="sponsorer">
   <div class="container">
-    <div class="section-title" style="text-align:center; margin-left:auto; margin-right:auto;">
-      <span class="eyebrow">Vedtægter</span>
-      <h2>FCR Padels vedtægter</h2>
-      <p>Godkendt på generalforsamlingen. Klik på hvert punkt for at læse detaljerne.</p>
+    <div class="section-title">
+      <span class="eyebrow">Sponsorer</span>
+      <h2>Tak til klubbens sponsorer</h2>
+      <p>Vores sponsorer er en helt afgørende del af klubben. Uden dem kunne vi ikke bygge, drive og udvikle et lokalt padelmiljø som dette. Klik på en sponsor for at besøge deres side.</p>
     </div>
 
-    <div class="accordion">
-      <details class="acc-item">
-        <summary>§ 1 · Navn og hjemsted</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingens navn er FCR Padel.</p>
-          <p><strong>Stk. 2:</strong> Afdelingens hjemsted er Rudersdal Kommune.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 2 · Tilhørsforhold til hovedforeningen</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingen er en forening med selvstændig økonomi og selvbestemmelsesret under hovedforeningen FCR.</p>
-          <p><strong>Stk. 2:</strong> Afdelingen er underlagt hovedforeningens vedtægter. Afdelingens formand indgår i hovedbestyrelsen.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 3 · Formål</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingen har til formål at fremme medlemmernes interesse i at dyrke idræt i form af padel og anden ketchersport. Afdelingen har også til formål at styrke fællesskabet og det sociale liv i afdelingen og fremme medlemmernes lyst til at engagere sig og tage et medansvar gennem folkeoplysende aktiviteter. Afdelingen varetager disse interesser på et almennyttigt grundlag.</p>
-          <p><strong>Stk. 2:</strong> Afdelingen indgår i et fællesskab med hovedforeningen og de øvrige afdelinger og fremmer sine interesser i samarbejde med disse.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 4 · Tilhørsforhold til andre organisationer</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Bestyrelsen kan ved enstemmighed beslutte, hvorvidt afdelingen skal være medlem af DGI og derved være underlagt dennes organisations regler og bestemmelser. Dette princip finder ligeledes anvendelse ved lignende forbund, fx Dansk Padel Forening.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 5 · Medlemsforhold</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Som aktivt medlem kan optages enhver, der tilslutter sig afdelingens formål og betaler kontingent for en kontingentperiode, som fastsat af bestyrelsen.</p>
-          <p><strong>Stk. 2:</strong> Bestyrelsen kan beslutte, at der på samme måde kan optages passive medlemmer.</p>
-          <p><strong>Stk. 3:</strong> Enhver person, der ønsker at være medlem af foreningen, kan optages som medlem. Bestyrelsen kan dog, såfremt den finder grund dertil, nægte en person optagelse. Den pågældende har i så fald ret til på førstkommende generalforsamling at få bestyrelsens beslutning taget op til prøvelse. Bestyrelsen beslutter, om der skal oprettes ventelister, og om der skal indføres en prøvetid for nye medlemmer.</p>
-          <p><strong>Stk. 4:</strong> Begæring om optagelse sker gennem foreningens hjemmeside. Ved indmeldelsen betales sædvanlig rate af kontingent.</p>
-          <p><strong>Stk. 5:</strong> Udmeldelse skal ske skriftligt (for spillere under 16 år af forældre eller værge), og kontingentrestancer erlægges samtidig, herunder kontingent for den periode, hvori udmeldelsen sker.</p>
-          <p><strong>Stk. 6:</strong> Ethvert aktivt medlem har ret til at anvende afdelingens faciliteter og deltage i afdelingens aktiviteter og tilbud samt til demokratisk medindflydelse på afdelingens forhold efter disse vedtægter. Et passivt medlem har ikke adgang til selve idrætsudøvelsen, men har alle øvrige medlemsrettigheder.</p>
-          <p><strong>Stk. 7:</strong> Medlemmerne er forpligtet til at overholde hovedforeningens og afdelingens vedtægter samt øvrige bestemmelser og de regler, som er fastsat af en organisation, som afdelingen er tilsluttet.</p>
-          <p><strong>Stk. 8:</strong> Anmodning om medlemskab behandles af afdelingsbestyrelsen. Afslag på medlemskab (dog ikke som følge af venteliste) kan kræves indbragt for afdelingsgeneralforsamlingen inden fire uger.</p>
-          <p><strong>Stk. 9:</strong> Er restance trods påkrav ikke betalt inden udgangen af den anden måned, meddeles det restanten, at vedkommende efter DIF's regler ikke kan deltage i nogen anden idrætsgren under DIF, så længe kontingentforhold og udmeldelse ikke er bragt i orden.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 6 · Afdelingskontingent</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingskontingentet fastsættes af afdelingsgeneralforsamlingen. Der kan fastsættes forskellige kontingenter for konkrete grupper af medlemmer — herunder aldersbestemt kontingent, kontingent for passive og eventuelt hel eller delvis kontingentfritagelse for ledere. Bestyrelsen kan fritage et medlem for kontingent, hvis særlige forhold taler for det.</p>
-          <p><strong>Stk. 2:</strong> Et medlem betaler også grundkontingent til hovedforeningen. Hovedbestyrelsen eller afdelingsbestyrelsen opkræver et samlet kontingent og fastlægger betalingsterminer og opkrævningsform.</p>
-          <p><strong>Stk. 3:</strong> Såfremt et medlem ikke betaler kontingent rettidigt og ikke har betalt efter at være blevet rykket, slettes den pågældende som medlem. Sådant ophør kan ikke kræves indbragt for afdelingsgeneralforsamlingen.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 7 · Udelukkelse og eksklusion</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Et medlem, der er i restance, kan ikke deltage i træning, kampe eller arrangementer, der forestås af foreningen, medmindre bestyrelsen dispenserer. Bestyrelsen kan suspendere eller ekskludere et medlem, der har gjort sig skyldig i grov tilsidesættelse af, hvad der må betragtes som hæderlig eller sømmelig sportslig eller social optræden. Medlemmet har ret til at kræve beslutningen forelagt på førstkommende generalforsamling.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 8 · Ordinær afdelingsgeneralforsamling</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingsgeneralforsamlingen er afdelingens øverste myndighed i alle anliggender.</p>
-          <p><strong>Stk. 2:</strong> Ordinær afdelingsgeneralforsamling afholdes én gang årligt inden udgangen af marts måned.</p>
-          <p><strong>Stk. 3:</strong> Bestyrelsen indkalder med mindst 3 ugers varsel via opslag, e-mail eller særskilt skrivelse. Forslag fra medlemmer skal være fremme senest 3 uger før. Endelig dagsorden udsendes senest 1 uge før.</p>
-          <p><strong>Stk. 4:</strong> Adgang har alle medlemmer. Stemmeret har alle medlemmer, der har været medlem i mindst 3 måneder og ikke er i kontingentrestance. For unge under 18 år gives stemmeret til forældre/værge. Passive medlemmer har ikke stemmeret. Stemmeretten kan udøves ved skriftlig fuldmagt — ingen kan afgive stemme efter mere end én fuldmagt.</p>
-          <p><strong>Stk. 5:</strong> En lovligt indkaldt generalforsamling er beslutningsdygtig uanset antallet af fremmødte.</p>
-          <p><strong>Stk. 6:</strong> Generalforsamlingen ledes af en dirigent, valgt af forsamlingen.</p>
-          <p><strong>Stk. 7:</strong> Beslutninger træffes ved almindeligt flertal, medmindre andet fremgår af vedtægterne. Ved personvalg er den valgt, der opnår flest stemmer.</p>
-          <p><strong>Stk. 8:</strong> Valgbar til bestyrelsen og som revisor er ethvert medlem, der er fyldt 18 år.</p>
-          <p><strong>Stk. 9:</strong> Dirigenten afgør spørgsmål om afstemninger og kan bestemme skriftlig afstemning.</p>
-          <p><strong>Stk. 10:</strong> Bestyrelsen sørger for referat, der godkendes og underskrives af dirigenten.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 9 · Dagsorden for ordinær generalforsamling</summary>
-        <div class="acc-body">
-          <p>Dagsordenen for den ordinære afdelingsgeneralforsamling skal mindst omfatte:</p>
-          <p>1) Valg af dirigent<br>
-          2) Afdelingsbestyrelsens beretning<br>
-          3) Aflæggelse og godkendelse af det reviderede årsregnskab<br>
-          4) Aflæggelse og godkendelse af bestyrelsens forslag til kontingent og budget<br>
-          5) Behandling af indkomne forslag<br>
-          6) Valg til afdelingsbestyrelsen:
-          <br>&nbsp;&nbsp;&nbsp;a) Formand (i lige år)
-          <br>&nbsp;&nbsp;&nbsp;b) Kasserer (i ulige år)
-          <br>&nbsp;&nbsp;&nbsp;c) Øvrige bestyrelsesmedlemmer (2 år ad gangen)
-          <br>&nbsp;&nbsp;&nbsp;d) Suppleanter<br>
-          7) Valg af revisor<br>
-          8) Eventuelt</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 10 · Ekstraordinær generalforsamling</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Ekstraordinær generalforsamling kan indkaldes af bestyrelsen og skal indkaldes, når mindst en femtedel af de stemmeberettigede medlemmer skriftligt kræver det med angivelse af emne.</p>
-          <p><strong>Stk. 2:</strong> Skal afholdes senest 4 uger efter kravet er modtaget. Indkaldelse med mindst 2 ugers varsel.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 11 · Afdelingsbestyrelsen</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingsbestyrelsen er afdelingens daglige ledelse og repræsenterer afdelingen i alle forhold. Bestyrelsen kan nedsætte nødvendige udvalg og arbejdsgrupper.</p>
-          <p><strong>Stk. 2:</strong> Bestyrelsen består af mindst 5 medlemmer + 2 suppleanter. Formand vælges særskilt. Alle valg sker på ordinær generalforsamling for to år. Formand og 2 medlemmer vælges i lige år, 2 medlemmer i ulige år. Op til 2 suppleanter vælges hvert år for et år.</p>
-          <p><strong>Stk. 3:</strong> Bestyrelsen kan selv fastsætte forretningsorden og er beslutningsdygtig, når mindst halvdelen er til stede.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 12 · Regnskab og revision</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingens regnskabsår er kalenderåret.</p>
-          <p><strong>Stk. 2:</strong> Bestyrelsen udarbejder årsregnskab med resultatopgørelse og status, som revideres og godkendes af generalforsamlingen.</p>
-          <p><strong>Stk. 3:</strong> Regnskabet revideres af to revisorer valgt af generalforsamlingen. På hver ordinær generalforsamling vælges én revisor for to år og én revisorsuppleant for et år.</p>
-          <p><strong>Stk. 4:</strong> Revisorerne gennemgår årsregnskabet og påser, at det er regnskabsmæssigt korrekt.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 13 · Tegningsret og hæftelse</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Afdelingen tegnes af formanden sammen med et bestyrelsesmedlem eller af tre bestyrelsesmedlemmer. Køb, salg og pantsætning af fast ejendom samt låneoptagelse over 150.000 kr. skal godkendes af generalforsamlingen.</p>
-          <p><strong>Stk. 2:</strong> Bestyrelsen kan meddele fuldmagt til udvalg eller person.</p>
-          <p><strong>Stk. 3:</strong> Der påhviler ikke medlemmerne eller bestyrelsesmedlemmerne nogen personlig hæftelse for afdelingens forpligtelser.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 14 · Vedtægtsændringer</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Ændring af vedtægterne kan ske på enhver generalforsamling, når mindst to tredjedele af de afgivne stemmer er for forslaget. Vedtægtsændringer skal meddeles til hovedbestyrelsen.</p>
-          <p><strong>Stk. 2:</strong> Vedtagelse af fusion afgøres med mindst to tredjedele af de afgivne stemmer.</p>
-        </div>
-      </details>
-
-      <details class="acc-item">
-        <summary>§ 15 · Udmeldelse og opløsning</summary>
-        <div class="acc-body">
-          <p><strong>Stk. 1:</strong> Udmeldelse af hovedforeningen eller opløsning skal forhandles med hovedbestyrelsen og kræver vedtagelse på to på hinanden følgende ekstraordinære generalforsamlinger med mindst seks ugers mellemrum. Tre fjerdedele af de afgivne stemmer skal være for beslutningen på begge generalforsamlinger.</p>
-          <p><strong>Stk. 2:</strong> Ved opløsning tilfalder afdelingens formue hovedforeningen. Ingen medlemmer kan få andel i formuen.</p>
-          <p><strong>Stk. 3:</strong> Til at forestå opløsningen vælger den afsluttende generalforsamling to personer.</p>
-        </div>
-      </details>
+    <div id="sponsorsContainer">
+      <!-- Sponsors rendered by JS from SPONSORS array in assets/js/main.js -->
     </div>
-    <p style="text-align:center; margin-top:24px; font-size:0.9rem; color:var(--ink-muted);">Vedtægter underskrevet 21. april 2024 af Lars Møller Christensen, Kasserer, FCR Padel.</p>
-  </div>
-</section>
 
-<!-- ==================== SPONSOR ==================== -->
-<section class="section" id="sponsor">
-  <div class="container">
-    <div class="sponsor-cta">
+    <div class="sponsor-cta-block">
       <div>
         <span class="eyebrow" style="color:var(--teal);">Bliv sponsor</span>
-        <h2>Støt lokal idræt — og få synlighed omkring banerne</h2>
-        <p>FCR Vedbæk Padel er en forening i opbygning, og vi er meget åbne for samarbejde med lokale virksomheder, som har lyst til at støtte udviklingen af padelmiljøet i Vedbæk.</p>
-        <ul>
-          <li>Drift og vedligeholdelse af baner</li>
-          <li>Udvikling af klubaktiviteter</li>
-          <li>Sociale arrangementer</li>
-          <li>Forbedring af faciliteter og klubmiljø</li>
-        </ul>
+        <h3>Støt lokal idræt – og få synlighed omkring banerne</h3>
+        <p>Vedbæk Padel er en forening i opbygning, og vi er meget åbne for samarbejde med lokale virksomheder, som har lyst til at støtte udviklingen af padelmiljøet i Vedbæk.</p>
       </div>
-      <div class="sponsor-actions">
+      <div class="actions">
         <a href="https://www-static.fcrudersdal.dk/wp-content/uploads/2026/03/FCR-Padel-sponsor-2.pdf" class="btn btn-teal" target="_blank" rel="noopener">
-          Hent sponsorfolder (PDF)
+          Hent sponsorfolder
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </a>
-        <a href="mailto:padel@fcrudersdal.dk?subject=Sponsorat%20FCR%20Vedbæk%20Padel" class="btn btn-secondary">
-          Kontakt os om sponsorat
-        </a>
+        <a href="mailto:padel@fcrudersdal.dk?subject=Sponsorat%20Vedb%C3%A6k%20Padel" class="btn btn-secondary">Skriv til os om sponsorat</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== KONTAKT ==================== -->
-<section class="section section-sand" id="kontakt">
+<section class="section" id="kontakt">
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Kontakt</span>
       <h2>Sådan får du fat i os</h2>
-      <p>Har du spørgsmål om medlemskab, sponsorater, eller vil du bare høre mere om klubben? Skriv til os — vi vender tilbage så hurtigt vi kan.</p>
+      <p>Har du spørgsmål om medlemskab, sponsorater, eller vil du bare høre mere om klubben? Skriv til os – vi vender tilbage så hurtigt vi kan.</p>
     </div>
 
     <div class="contact-grid">
@@ -1237,7 +513,7 @@
           </div>
           <div>
             <div class="label">Adresse</div>
-            <div class="val">FCR Vedbæk Padel<br>Gøngehusvej 27, 2950 Vedbæk</div>
+            <div class="val">Vedbæk Padel<br>Gøngehusvej 27, 2950 Vedbæk</div>
           </div>
         </div>
         <div class="contact-row">
@@ -1251,11 +527,18 @@
         </div>
         <div class="contact-row">
           <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <div>
-            <div class="label">Facebook-gruppe</div>
-            <div class="val"><a href="#" target="_blank" rel="noopener">Følg FCR Vedbæk Padel på Facebook</a></div>
+            <div class="label">Følg os</div>
+            <div class="social-links">
+              <a href="https://www.facebook.com/profile.php?id=61587104096536" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.99 22 12z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/vedbaekpadel/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="contact-row">
@@ -1276,20 +559,11 @@
             <div class="val">#100373</div>
           </div>
         </div>
-        <div class="contact-row">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <div>
-            <div class="label">FCR Padel underside</div>
-            <div class="val"><a href="https://www.fcrudersdal.dk/padel" target="_blank" rel="noopener">fcrudersdal.dk/padel</a></div>
-          </div>
-        </div>
       </div>
 
       <div class="map-wrap">
         <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=12.5445%2C55.8425%2C12.5615%2C55.8515&amp;layer=mapnik&amp;marker=55.847%2C12.553"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=12.5540%2C55.8460%2C12.5680%2C55.8540&amp;layer=mapnik&amp;marker=55.8500%2C12.5609"
           loading="lazy"
           title="Kort over Vedbæk Stadion, Gøngehusvej 27, 2950 Vedbæk"></iframe>
       </div>
@@ -1302,12 +576,12 @@
   <div class="container">
     <div>
       <div class="brand">
-        <img src="assets/logo-vedbaek-padel.png" alt="Vedbæk Padel">
+        <img src="assets/img/logo-vedbaek-padel.png" alt="Vedbæk Padel">
         <div>
-          <div class="brand-text">FCR Vedbæk Padel <small>En del af FCR</small></div>
+          <div class="brand-text">Vedbæk Padel <small>En del af FCR</small></div>
         </div>
       </div>
-      <p class="about">Lokal padel i foreningsfællesskab på Vedbæk Stadion. Tre udendørs baner, MATCHi-booking og et stærkt socialt liv — for alle niveauer.</p>
+      <p class="about">Lokal padel i foreningsfællesskab på Vedbæk Stadion. Tre udendørs baner, MATCHi-booking og et stærkt socialt liv – for alle niveauer.</p>
     </div>
     <div>
       <h4>Navigation</h4>
@@ -1317,7 +591,8 @@
       <a href="#priser">Priser</a>
       <a href="#faellesskab">Fællesskab</a>
       <a href="#bestyrelse">Bestyrelse</a>
-      <a href="#vedtaegter">Vedtægter</a>
+      <a href="#sponsorer">Sponsorer</a>
+      <a href="vedtaegter.html">Vedtægter</a>
     </div>
     <div>
       <h4>Kontakt</h4>
@@ -1325,31 +600,16 @@
       <a>Gøngehusvej 27, 2950 Vedbæk</a>
       <a>CVR 45448126</a>
       <a>MobilePay #100373</a>
-      <a href="https://www.fcrudersdal.dk/padel" target="_blank" rel="noopener">fcrudersdal.dk/padel</a>
+      <a href="https://www.matchi.se/facilities/vedbaekpadelklub" target="_blank" rel="noopener">Book i MATCHi</a>
     </div>
   </div>
   <div class="bottom">
-    <div>© 2026 FCR Vedbæk Padel. Alle rettigheder forbeholdes.</div>
-    <div>En afdeling under FCR — søsterklub til FC Rudersdal</div>
+    <div>© 2026 Vedbæk Padel. Alle rettigheder forbeholdes.</div>
+    <div>En afdeling under FCR – søsterklub til FC Rudersdal</div>
   </div>
 </footer>
 
-<script>
-  // Nav scroll state
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  });
-
-  // Mobile toggle
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    links.classList.toggle('open');
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-</script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
