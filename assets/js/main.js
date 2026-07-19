@@ -16,7 +16,7 @@ const SPONSORS = [
     name: 'Medidyne',
     tag: 'Medicinsk udstyr',
     url: 'https://medidyne.dk',
-    logo: null,   // fx 'medidyne.png'
+    logo: 'medidyne.png',
     tier: 'founding'
   },
   {
@@ -39,21 +39,21 @@ const SPONSORS = [
     name: 'GF Hovedstaden',
     tag: 'Forsikring',
     url: 'https://www.gfforsikring.dk/klub/gf-hovedstaden-klub-157/',
-    logo: null,
+    logo: 'gf_forsikring.png',
     tier: 'network'
   },
   {
     name: 'RealMæglerne Hanne Løye',
     tag: 'Ejendomsmægler',
-    url: 'https://www.realmaeglerne.dk',
-    logo: null,
+    url: 'https://www.realmaeglerne.dk/144?Type=villa',
+    logo: 'real.png',
     tier: 'network'
   },
   {
     name: 'Chumhum ApS',
     tag: 'Investering',
-    url: null,
-    logo: null,
+    url: 'https://chuchum.dk/',
+    logo: 'chumhum.png',
     tier: 'network'
   },
   {
@@ -67,21 +67,21 @@ const SPONSORS = [
     name: 'IT-Trade',
     tag: 'IT-udstyr',
     url: 'https://www.it-trade.dk',
-    logo: null,
+    logo: 'it_trade.png',
     tier: 'network'
   },
   {
     name: 'Hyggi',
     tag: 'Designede legemåtter',
     url: 'https://www.hyggi.dk',
-    logo: null,
+    logo: 'hyggi.png',
     tier: 'network'
   },
   {
     name: 'The Kitchen',
     tag: 'Catering, Trørød',
     url: 'https://thekitchen.dk',
-    logo: null,
+    logo: 'the_kitchen.png',
     tier: 'network'
   },
   {
