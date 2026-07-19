@@ -30,7 +30,7 @@ const SPONSORS = [
     name: 'Ivan Eltoft Nielsen',
     tag: 'Ejendomsmægler',
     url: 'https://eltoftnielsen.dk',
-    logo: null,
+    logo: 'ivan_eltoft_nielsen.png',
     tier: 'founding'
   },
 
