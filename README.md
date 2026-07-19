@@ -9,15 +9,22 @@ vedbaek-padel/
 ├── index.html              ← Forsiden
 ├── vedtaegter.html         ← Selvstændig vedtægter-side
 ├── assets/
-│   ├── css/
-│   │   └── styles.css      ← Al styling
-│   ├── js/
-│   │   └── main.js         ← Sponsor-data + nav
+│   ├── css/styles.css      ← Al styling
+│   ├── js/main.js          ← Sponsor-data + nav
+│   ├── dokumenter/         ← PDF'er (referater osv.)
+│   ├── site.webmanifest    ← iOS/Android app-manifest
 │   └── img/
 │       ├── logo-vedbaek-padel.png
+│       ├── icons/          ← Favicons + apple-touch + android-chrome
 │       └── sponsors/       ← Sponsor-logoer lægges her
 └── README.md
 ```
+
+## Fonte
+
+- **Montserrat** (800/900) til headings, taldisplays og logo-mimende elementer
+- **Inter** til brødtekst
+- Loades fra Google Fonts
 
 ## Rediger sponsorer
 
