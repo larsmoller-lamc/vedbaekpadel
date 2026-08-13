@@ -59,7 +59,7 @@ const SPONSORS = [
   {
     name: 'ComIT',
     tag: 'IT-udstyr',
-    url: 'https://comit.dk/,
+    url: 'https://comit.dk/',
     logo: 'comit.png',
     tier: 'network'
   },
