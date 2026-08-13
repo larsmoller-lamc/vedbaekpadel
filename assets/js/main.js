@@ -88,7 +88,7 @@ const SPONSORS = [
     name: 'Designa Køkken',
     tag: 'Boligindretning',
     url: 'https://designa.dk/',
-    logo: 'designe_uden_payoff.png',
+    logo: 'designa_uden_payoff.png',
     tier: 'network'
   },
   {
