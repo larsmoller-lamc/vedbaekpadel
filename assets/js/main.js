@@ -57,10 +57,10 @@ const SPONSORS = [
     tier: 'network'
   },
   {
-    name: 'T.O. Holding',
-    tag: 'Investering',
-    url: null,
-    logo: null,
+    name: 'ComIT',
+    tag: 'IT-udstyr',
+    url: 'https://comit.dk/,
+    logo: 'comit.png',
     tier: 'network'
   },
   {
@@ -85,10 +85,24 @@ const SPONSORS = [
     tier: 'network'
   },
   {
+    name: 'Designa Køkken',
+    tag: 'Boligindretning',
+    url: 'https://designa.dk/',
+    logo: 'designe_uden_payoff.png',
+    tier: 'network'
+  },
+  {
+    name: 'StudiJo',
+    tag: 'Træning',
+    url: 'https://studi-jo.dk/',
+    logo: 'studijo.png',
+    tier: 'network'
+  },
+  {
     name: 'MS2 Holding',
-    tag: 'Investering',
-    url: 'https://www.ms2invest.dk',
-    logo: null,
+    tag: 'Print',
+    url: 'https://www.ikonlabel.dk//',
+    logo: 'ikonlabel.jpg',
     tier: 'network'
   },
 
