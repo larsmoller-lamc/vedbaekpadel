@@ -23,7 +23,7 @@ const SPONSORS = [
     name: 'Tokara Ventures',
     tag: 'Venture-selskab',
     url: 'https://www.tokara.dk',
-    logo: null,
+    logo: 'tokara.png',
     tier: 'founding'
   },
   {
@@ -46,7 +46,7 @@ const SPONSORS = [
     name: 'RealMæglerne Hanne Løye',
     tag: 'Ejendomsmægler',
     url: 'https://www.realmaeglerne.dk/144?Type=villa',
-    logo: 'real.png',
+    logo: 'real_hanne.png',
     tier: 'network'
   },
   {
@@ -97,7 +97,7 @@ const SPONSORS = [
     name: 'Liebhaveradvokaten',
     tag: 'Advokat',
     url: 'https://www.liebhaveradvokaten.dk',
-    logo: null,
+    logo: 'liebhaver_adv.png',
     tier: 'local'
   }
 ];
