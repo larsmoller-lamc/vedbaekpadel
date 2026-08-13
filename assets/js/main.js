@@ -99,7 +99,7 @@ const SPONSORS = [
     tier: 'network'
   },
   {
-    name: 'MS2 Holding',
+    name: 'Ikon Label',
     tag: 'Print',
     url: 'https://www.ikonlabel.dk//',
     logo: 'ikonlabel.jpg',
