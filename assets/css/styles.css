@@ -826,13 +826,17 @@ footer .bottom {
 .sponsor-band-strip {
   background: var(--navy);
   margin-top: var(--nav-h, 72px);
+  padding: 12px 0;
+}
+/* Samme bredde som resten af siden, så logoerne kommer ind og går ud
+   dér, hvor sidens indhold begynder og slutter — ikke ved skærmkanten. */
+.sponsor-band-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 12px 0;
-  /* Rykker overskriften ind på linje med sidens indhold, mens selve
-     rullen fortsætter helt ud til skærmkanten. */
-  padding-inline-start: clamp(24px, calc((100% - 1140px) / 2 + 24px), 50%);
 }
 .sponsor-band-label {
   flex: 0 0 auto;
@@ -852,8 +856,9 @@ footer .bottom {
   min-width: 0;
   position: relative;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 93%, transparent);
-          mask-image: linear-gradient(90deg, #000 0, #000 93%, transparent);
+  /* Logoerne toner ind i højre side og ud igen i venstre */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
 }
 .sponsor-band-track {
   display: flex;
@@ -893,18 +898,13 @@ footer .bottom {
 .sponsor-band-strip + .hero { padding-top: 40px; }
 
 @media (max-width: 620px) {
-  .sponsor-band-strip {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 7px;
-    padding: 11px 0 12px;
-    padding-inline-start: 0;
-  }
-  .sponsor-band-label { max-width: none; padding-inline: 24px; font-size: 0.62rem; }
-  /* Båndet går i fuld bredde her, så begge kanter tones ud */
+  .sponsor-band-strip { padding: 11px 0 12px; }
+  .sponsor-band-inner { flex-direction: column; align-items: stretch; gap: 7px; }
+  .sponsor-band-label { max-width: none; font-size: 0.62rem; }
+  /* Smallere udtoning, så der er plads til flere logoer på telefon */
   .sponsor-band {
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
   }
   .sponsor-band-chip { height: 44px; padding: 0 15px; margin-right: 10px; }
   .sponsor-band-chip img { max-height: 24px; max-width: 100px; }
