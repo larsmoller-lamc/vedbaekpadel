@@ -42,6 +42,15 @@
   </div>
 </nav>
 
+<!-- ==================== SPONSORBÅND ==================== -->
+<div class="sponsor-band-strip">
+  <a class="sponsor-band-label" href="#sponsorer">Klubbens sponsorer</a>
+  <div class="sponsor-band">
+    <!-- Logoer indsættes af renderSponsorBand() i assets/js/main.js -->
+    <div class="sponsor-band-track" id="sponsorBandTrack"></div>
+  </div>
+</div>
+
 <!-- ==================== HERO ==================== -->
 <section class="hero" id="top">
   <div class="container">
@@ -66,7 +75,7 @@
       </div>
     </div>
 
-    <div class="hero-quick" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="hero-quick">
       <div class="quick-card">
         <div class="num">3</div>
         <div class="lbl">Udendørs baner med lys</div>
@@ -135,17 +144,13 @@
         </span>
         <h3>Fuldt hus lige nu</h3>
         <p>Klubben har for øjeblikket alle de medlemmer, vi har kapacitet til. I efteråret vurderer bestyrelsen, om vi kan åbne for flere ordinære medlemskaber – og alle på ventelisten hører fra os, så snart der er nyt.</p>
-        <p>I mellemtiden kan du blive <strong>dagsmedlem</strong> resten af 2026 og få adgang til at booke og spille på klubbens baner. Se prisen på <a href="#priser">kontingent-oversigten</a>.</p>
       </div>
       <div class="membership-actions">
-        <a href="https://www.matchi.se/forms/u7J1BaD26WwGYilvz0MF" class="btn btn-primary" target="_blank" rel="noopener">
-          Bliv dagsmedlem
+        <a href="https://www.matchi.se/forms/13zdvATIFhzZsz9usVMx" class="btn btn-primary" target="_blank" rel="noopener">
+          Skriv dig på venteliste
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="https://www.matchi.se/forms/13zdvATIFhzZsz9usVMx" class="btn btn-secondary" target="_blank" rel="noopener">
-          Skriv dig på venteliste
-        </a>
-        <p style="font-size:0.82rem; color:var(--ink-muted); margin-top:4px;">Indmeldelsesgebyr for dagsmedlem: 250 kr. Venteliste: 1 kr.</p>
+        <p style="font-size:0.82rem; color:var(--ink-muted); margin-top:4px;">Venteliste: 1 kr.</p>
       </div>
     </div>
   </div>
@@ -348,12 +353,6 @@
         <p class="desc">Almindeligt medlemskab</p>
         <div class="amount">1.500 <small>kr./år</small></div>
         <p class="foot">Frit spil, sociale spil, events og fællesskabet</p>
-      </div>
-      <div class="price-card">
-        <h3>Dagsmedlem</h3>
-        <p class="desc">Resten af 2026</p>
-        <div class="amount">700 <small>kr.</small></div>
-        <p class="foot">Ingen FCR-rabat på dette medlemskab</p>
       </div>
       <div class="price-card">
         <h3>FCR-rabat</h3>
