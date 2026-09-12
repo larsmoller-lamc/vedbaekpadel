@@ -815,3 +815,110 @@ footer .bottom {
   .doc-toc { position: static; max-height: none; }
   .doc-content { padding: 32px 24px; }
 }
+
+/* ================================================================
+   Sponsorbånd i toppen af forsiden
+   ================================================================ */
+
+/* Båndet ligger i normalt flow lige under den fastlåste menu.
+   --nav-h sættes af syncNavHeight() i main.js, så båndet altid
+   starter præcis dér, hvor menuen slutter. */
+.sponsor-band-strip {
+  background: var(--navy);
+  margin-top: var(--nav-h, 72px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+  /* Rykker overskriften ind på linje med sidens indhold, mens selve
+     rullen fortsætter helt ud til skærmkanten. */
+  padding-inline-start: clamp(24px, calc((100% - 1140px) / 2 + 24px), 50%);
+}
+.sponsor-band-label {
+  flex: 0 0 auto;
+  max-width: 96px;
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  line-height: 1.35;
+}
+.sponsor-band-label:hover { color: white; }
+
+.sponsor-band {
+  flex: 1 1 auto;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, #000 0, #000 93%, transparent);
+}
+.sponsor-band-track {
+  display: flex;
+  width: max-content;
+  animation: sponsor-marquee var(--dur, 45s) linear infinite;
+}
+/* Står stille, så et logo kan nås og klikkes */
+.sponsor-band:hover .sponsor-band-track,
+.sponsor-band:focus-within .sponsor-band-track { animation-play-state: paused; }
+.sponsor-band-row { display: flex; align-items: center; }
+@keyframes sponsor-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.sponsor-band-chip {
+  flex: 0 0 auto;
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 20px;
+  background: white;
+  border-radius: 9px;
+}
+.sponsor-band-chip img {
+  max-height: 30px;
+  max-width: 130px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.sponsor-band-chip:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+/* Hero'en skal ikke længere gøre plads til menuen — det gør båndet */
+.sponsor-band-strip + .hero { padding-top: 40px; }
+
+@media (max-width: 620px) {
+  .sponsor-band-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+    padding: 11px 0 12px;
+    padding-inline-start: 0;
+  }
+  .sponsor-band-label { max-width: none; padding-inline: 24px; font-size: 0.62rem; }
+  /* Båndet går i fuld bredde her, så begge kanter tones ud */
+  .sponsor-band {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+  .sponsor-band-chip { height: 44px; padding: 0 15px; margin-right: 10px; }
+  .sponsor-band-chip img { max-height: 24px; max-width: 100px; }
+  .sponsor-band-strip + .hero { padding-top: 28px; }
+}
+
+/* Har den besøgende slået animationer fra, bliver båndet en
+   almindelig vandret liste, man selv kan trække i. */
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-band {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .sponsor-band-track { animation: none; }
+  .sponsor-band-row + .sponsor-band-row { display: none; }
+}

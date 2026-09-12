@@ -186,9 +186,76 @@ function initNavToggle() {
   );
 }
 
+/* ----- Sponsorbånd i toppen -----
+   Founding partners ligger først i rullen, derefter de øvrige.
+   Inden for hver gruppe blandes rækkefølgen ved hvert sidevisning,
+   så ingen sponsor har en fast plads. */
+const BAND_SPEED = 46; // px pr. sekund
+
+function shuffled(list) {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function bandOrder() {
+  return [
+    ...shuffled(SPONSORS.filter(s => s.tier === 'founding')),
+    ...shuffled(SPONSORS.filter(s => s.tier !== 'founding'))
+  ];
+}
+
+/* Rækken lægges to gange, så rullen kan løbe rundt uden synligt spring.
+   Kopien skjules for skærmlæsere og tastatur. */
+function bandRow(order, isCopy) {
+  const chips = order.map(s => {
+    const img = `<img src="assets/img/sponsors/${s.logo}" alt="${isCopy ? '' : s.name}" decoding="async">`;
+    return `<a class="sponsor-band-chip" href="${s.url}" target="_blank" rel="noopener"` +
+           `${isCopy ? ' tabindex="-1" aria-hidden="true"' : ''}>${img}</a>`;
+  }).join('');
+  return `<div class="sponsor-band-row"${isCopy ? ' aria-hidden="true"' : ''}>${chips}</div>`;
+}
+
+/* Ens tempo uanset hvor mange sponsorer der er på listen */
+function setBandSpeed() {
+  const track = document.getElementById('sponsorBandTrack');
+  const row = track && track.querySelector('.sponsor-band-row');
+  if (!row || !row.scrollWidth) return;
+  track.style.setProperty('--dur', (row.scrollWidth / BAND_SPEED).toFixed(1) + 's');
+}
+
+function renderSponsorBand() {
+  const track = document.getElementById('sponsorBandTrack');
+  if (!track) return;
+  const order = bandOrder();
+  track.innerHTML = bandRow(order, false) + bandRow(order, true);
+  requestAnimationFrame(setBandSpeed);
+}
+
+/* ----- Båndet skal starte, hvor menuen slutter ----- */
+function syncNavHeight() {
+  const nav = document.getElementById('nav');
+  if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+}
+
 /* ----- Init on DOM ready ----- */
 document.addEventListener('DOMContentLoaded', () => {
+  syncNavHeight();
   initNavScroll();
   initNavToggle();
   renderSponsors();
+  renderSponsorBand();
+});
+
+/* Logoernes bredde kendes først, når billederne er hentet */
+window.addEventListener('load', () => {
+  syncNavHeight();
+  setBandSpeed();
+});
+window.addEventListener('resize', () => {
+  syncNavHeight();
+  setBandSpeed();
 });
