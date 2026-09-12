@@ -839,6 +839,9 @@ footer .bottom {
   gap: 20px;
 }
 .sponsor-band-label {
+  /* display:block sikrer, at max-width virker, også hvis elementet
+     af en eller anden grund ikke ligger i flex-beholderen */
+  display: block;
   flex: 0 0 auto;
   max-width: 96px;
   font-family: 'Montserrat', 'Inter', sans-serif;
