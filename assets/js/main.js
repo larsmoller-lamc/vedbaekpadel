@@ -105,6 +105,13 @@ const SPONSORS = [
     logo: 'ikonlabel.jpg',
     tier: 'network'
   },
+  {
+    name: 'Curo Capital',
+    tag: 'Investering',
+    url: 'https://curocapital.dk/',
+    logo: 'curo_capital.png',
+    tier: 'network'
+  },
 
   // ---------- LOKALPARTNERE (~4.000 kr.) ----------
   {
